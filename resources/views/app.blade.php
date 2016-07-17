@@ -9,7 +9,7 @@
     <meta content='' name='description'>
     <meta content='' name='keywords'>
     <link href="{{url('assets/stylesheets/application-a07755f5.css')}}" rel="stylesheet" type="text/css" />
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{url('assets/netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{url('assets/images/favicon.ico')}}" rel="icon" type="image/ico" />
     
   </head>
@@ -71,48 +71,36 @@
       <section id='sidebar'>
         <i class='icon-align-justify icon-large' id='toggle'></i>
         <ul id='dock'>
-          <li class='active launcher'>
+          <li class='{{$dashboard or ''}} launcher'>
             <i class='icon-dashboard'></i>
             <a href="{{url()}}">Dashboard</a>
           </li>
-          <li class='launcher'>
+          <li class='{{$ads_verification or ''}} launcher'>
             <i class='icon-check'></i>
             <a href="{{url('ads/verification')}}">Ads Verification</a>
           </li>
-          <li class='launcher'>
+          <li class='{{$web_config or ''}} launcher'>
             <i class='icon-table'></i>
-            <a href="{{url('tables.html')}}">Tables</a>
+            <a href="{{url('web/config')}}">Web Config</a>
           </li>
-          <li class='launcher dropdown hover'>
-            <i class='icon-flag'></i>
-            <a href='#'>Reports</a>
+          <li class='{{$master_data  or ''}} launcher dropdown hover'>
+            <i class='icon-list'></i>
+            <a href='#'>Master Data</a>
             <ul class='dropdown-menu'>
-              <li class='dropdown-header'>Launcher description</li>
-              <li>
-                <a href='#'>Action</a>
-              </li>
-              <li>
-                <a href='#'>Another action</a>
-              </li>
-              <li>
-                <a href='#'>Something else here</a>
-              </li>
+              <!-- <li class='dropdown-header'></li> -->
+              <li><a href='{{url("master/pilar")}}'>Pilar</a></li>
+              <li><a href='{{url("master/category_type")}}'>Category Type</a></li>
+              <li><a href='{{url("master/category")}}'>Category</a></li>
+              <li><a href='{{url("master/province")}}'>Province</a></li>
+              <li><a href='{{url("master/city")}}'>City</a></li>
             </ul>
-          </li>
-          <li class='launcher'>
-            <i class='icon-bookmark'></i>
-            <a href='#'>Bookmarks</a>
-          </li>
-          <li class='launcher'>
-            <i class='icon-cloud'></i>
-            <a href='#'>Backup</a>
           </li>
           <li class='launcher'>
             <i class='icon-bug'></i>
             <a href='#'>Feedback</a>
           </li>
         </ul>
-        <div data-toggle='tooltip' id='beaker' title='Made by lab2023'></div>
+        <div data-toggle='tooltip' id='beaker' title='Auto Admin'></div>
       </section>
       <section id='tools'>
         <ul class='breadcrumb' id='breadcrumb'>
@@ -146,6 +134,6 @@
         @yield('content')
       </div>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script><script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js" type="text/javascript"></script><script src="{{url('assets/javascripts/application-985b892b.js')}}" type="text/javascript"></script>
+    <script src="{{url('assets/ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js')}}" type="text/javascript"></script><script src="{{url('assets/ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')}}" type="text/javascript"></script><script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js" type="text/javascript"></script><script src="{{url('assets/javascripts/application-985b892b.js')}}" type="text/javascript"></script>
   </body>
 </html>

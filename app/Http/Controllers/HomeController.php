@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use Auth;
+use Illuminate\Support\Facades\Input;
+
 class HomeController extends Controller {
 
 	/*
@@ -30,11 +33,11 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('page.dashboard');
+		return view('page.dashboard')->with(array('dashboard'=>'active'));
 	}
 	public function ads_verification()
 	{
-		return view('page.ads_verification');
+		return view('page.ads_verification')->with(array('ads_verification'=>'active'));
 	}
 	public function ads_approve($id)
 	{
@@ -47,6 +50,23 @@ class HomeController extends Controller {
 		\DB::table('products')->where('id',$id)->update(array('status'=>2));
 
 		return redirect(url('ads/verification'));
+	}
+	public function web_config()
+	{
+		return view('page.web_config')->with(array('web_config'=>'active'));
+	}
+	public function web_config_edit($id)
+	{
+		return view('page.web_config_edit')->with(array('web_config'=>'active',
+				'data'=>\DB::table('appconfigs')->where('id',$id)->first()));
+	}
+	public function web_config_update($id)
+	{
+		$a = Input::all();
+		unset($a['_token']);
+		\DB::table('appconfigs')->where('id',$id)->update($a);
+
+		return redirect(url('web/config'));
 	}
 
 }
