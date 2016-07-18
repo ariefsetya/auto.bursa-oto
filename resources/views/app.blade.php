@@ -20,7 +20,7 @@
         Auto Admin
       </a>
       <ul class='nav navbar-nav pull-right'>
-        <li class='dropdown'>
+<!--         <li class='dropdown'>
           <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
             <i class='icon-envelope'></i>
             Messages
@@ -41,25 +41,25 @@
               <a href='#'>Trash</a>
             </li>
           </ul>
-        </li>
-        <li>
+        </li> -->
+<!--         <li>
           <a href='#'>
             <i class='icon-cog'></i>
             Settings
           </a>
-        </li>
+        </li> -->
         <li class='dropdown user'>
           <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
             <i class='icon-user'></i>
-            <strong>John DOE</strong>
+            <strong>{{Auth::user()->name}}</strong>
             <img class="img-rounded" src="https://placeholdit.imgix.net/~text?txtsize=5&amp;bg=cccccc&amp;txtclr=777777&amp;txt=20%C3%9720&amp;w=20&amp;h=20&amp;txtpad=1" />
             <b class='caret'></b>
           </a>
           <ul class='dropdown-menu'>
-            <li>
+            <!-- <li>
               <a href='#'>Edit Profile</a>
-            </li>
-            <li class='divider'></li>
+            </li> -->
+            <!-- <li class='divider'></li> -->
             <li>
               <a href="{{url('auth/logout')}}">Sign out</a>
             </li>
@@ -106,7 +106,7 @@
         <ul class='breadcrumb' id='breadcrumb'>
           <li class='title'>@yield('title')</li>
         </ul>
-        <div id='toolbar'>
+        <!-- <div id='toolbar'>
           <div class='btn-group'>
             <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Building'>
               <i class='icon-building'></i>
@@ -128,7 +128,7 @@
           <div class='label label-info'>
             Info
           </div>
-        </div>
+        </div> -->
       </section>
       <div id='content'>
         @yield('content')
