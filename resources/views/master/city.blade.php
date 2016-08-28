@@ -1,12 +1,12 @@
 @extends('app')
 
-@section('title') Dashboard &raquo; Web Config @endsection
+@section('title') Dashboard &raquo; City @endsection
 
 @section('content')
 <div class='panel panel-default'>
   <div class='panel-heading'>
     <i class='icon-cloud icon-large'></i>
-    Auto Admin Web Config
+    Auto Admin City
     <div class='panel-tools'>
       <div class='btn-group'>
         <a class='btn' href=''>
@@ -21,21 +21,19 @@
       <thead>
         <tr>
           <th class="text-center">No</th>
-          <th>Key</th>
+          <th>Province</th>
+          <th>Name</th>
           <th>Type</th>
-          <th style="width: 400px;">Value</th>
-          <th>Action</th>
         </tr>
       </thead>
       <tbody>
       <?php $i=1;?>
-      @foreach(\DB::table('appconfigs')->get() as $key)
+      @foreach(\DB::table('cities')->get() as $key)
           <tr>
             <td class="text-center">{{$i++}}</td>
-            <td>{{$key->key}}</td>
+            <td>{{$key->provinsi}}</td>
+            <td>{{$key->nama}}</td>
             <td>{{$key->type}}</td>
-            <td>{{$key->value}}</td>
-            <td><a href="{{url('web/config/'.$key->id)}}">Edit Value</a></td>
           </tr>
       @endforeach
       </tbody>

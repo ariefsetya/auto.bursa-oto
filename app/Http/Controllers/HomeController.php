@@ -51,6 +51,22 @@ class HomeController extends Controller {
 
 		return redirect(url('ads/verification'));
 	}
+	public function promotion_verification()
+	{
+		return view('page.promotion_verification')->with(array('promotion_verification'=>'active'));
+	}
+	public function promotion_approve($id)
+	{
+		\DB::table('products')->where('id',$id)->update(array('promo'=>2));
+
+		return redirect(url('promotion/verification'));
+	}
+	public function promotion_decline($id)
+	{
+		\DB::table('products')->where('id',$id)->update(array('promo'=>3));
+
+		return redirect(url('promotion/verification'));
+	}
 	public function web_config()
 	{
 		return view('page.web_config')->with(array('web_config'=>'active'));
@@ -67,6 +83,31 @@ class HomeController extends Controller {
 		\DB::table('appconfigs')->where('id',$id)->update($a);
 
 		return redirect(url('web/config'));
+	}
+	public function master_pilar()
+	{
+		return view('master.pilar')->with(array('master_data'=>'active'));
+	}
+	public function master_category_type()
+	{
+		return view('master.category_type')->with(array('master_data'=>'active'));
+	}
+	public function master_category()
+	{
+		return view('master.category')->with(array('master_data'=>'active'));
+	}
+	public function master_province()
+	{
+		return view('master.province')->with(array('master_data'=>'active'));
+	}
+	public function master_city()
+	{
+		return view('master.city')->with(array('master_data'=>'active'));
+	}
+
+	public function feedback()
+	{
+		return view('page.feedback')->with(array('feedback'=>'active'));
 	}
 
 }

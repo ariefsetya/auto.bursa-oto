@@ -79,6 +79,10 @@
             <i class='icon-check'></i>
             <a href="{{url('ads/verification')}}">Ads Verification</a>
           </li>
+          <li class='{{$promotion_verification or ''}} launcher'>
+            <i class='icon-check'></i>
+            <a href="{{url('promotion/verification')}}">Promotion Verification</a>
+          </li>
           <li class='{{$web_config or ''}} launcher'>
             <i class='icon-table'></i>
             <a href="{{url('web/config')}}">Web Config</a>
@@ -95,9 +99,9 @@
               <li><a href='{{url("master/city")}}'>City</a></li>
             </ul>
           </li>
-          <li class='launcher'>
+          <li class='launcher {{$feedback  or ''}}'>
             <i class='icon-bug'></i>
-            <a href='#'>Feedback</a>
+            <a href='{{url('feedback')}}'>Feedback</a>
           </li>
         </ul>
         <div data-toggle='tooltip' id='beaker' title='Auto Admin'></div>
